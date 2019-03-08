@@ -1,5 +1,8 @@
 FROM alpine:3.8
 
-COPY biber-linux_x86_64-musl /usr/local/bin
+ADD biber-linux_x86_64-musl /usr/local/bin/biber
+ADD test.bcf /
+ADD test.bib /
+ADD bibertest.sh /
 
-ENTRYPOINT [ "/usr/local/bin/biber-linux_x86_64-musl", "--version" ]
+ENTRYPOINT [ "./bibertest.sh" ]
